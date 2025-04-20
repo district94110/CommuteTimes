@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Commute Time Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    #map {
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Top control panel -->
+  <div class="absolute top-4 left-4 z-10 bg-white bg-opacity-90 rounded-xl shadow-lg p-4 flex items-center space-x-2">
+    <label for="metric" class="font-semibold text-gray-700">Select Metric:</label>
+    <select id="metric" class="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none">
+        <option value="Commute_Time">Average Commute Time</option>
+        <option value="Transit_Time">Transit Commute Time</option>
+      <option value="Driving_Time">Drive Commute Time</option>
+      <option value="ratio">Transit/Drive Ratio</option>
+    </select>
+  </div>
+
+  <!-- Fullscreen map -->
+  <div id="map"></div>
+
+  <!-- Your script -->
+  <script src="map.js"></script>
+</body>
+</html>
