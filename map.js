@@ -54,9 +54,9 @@ function getStyle(feature, metric) {
   const isDataValid = isValid(val, metric, raw);
   return {
     fillColor: isDataValid ? getColor(val, metric) : "#ccc",
-    weight: 1,
+    weight: 0.1,
     color: "#fff",
-    fillOpacity: 0.7
+    fillOpacity: 0.5
   };
 }
 

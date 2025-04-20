@@ -2,38 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="Mean commute times map for US counties, including transit, driving and overall commute times.">
+
   <title>Commute Time Map</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-    #map {
-      height: 100%;
-      width: 100%;
-      z-index: 0;
-    }
-  </style>
 </head>
-<body class="relative">
+<body class="flex flex-col items-center m-0 p-10 overflow-hidden h-screen bg-gray-100">
 
-  <!-- Top control panel -->
-  <div class="absolute top-4 left-4 z-10 bg-white bg-opacity-90 rounded-xl shadow-lg p-4 flex items-center space-x-2">
+  <!-- Top-left control panel -->
+  <div class="flex flex-col absolute top-40 left-4 z-50 bg-white bg-opacity-90 rounded-xl shadow-lg p-4 items-start gap-2">
+    <div>2023 ACS Survey Data</div>
     <label for="metric" class="font-semibold text-gray-700">Select Metric:</label>
-    <select id="metric" class="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none">
+    <select id="metric" class="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
         <option value="Commute_Time">Average Commute Time</option>
         <option value="Transit_Time">Transit Commute Time</option>
-      <option value="Driving_Time">Drive Commute Time</option>
-      <option value="ratio">Transit/Drive Ratio</option>
+        <option value="Driving_Time">Drive Commute Time</option>
+        <option value="ratio">Transit/Drive Ratio</option>
     </select>
   </div>
 
   <!-- Fullscreen map -->
-  <div id="map"></div>
+  <div id="map" class="w-full h-full rounded-xl shadow-md border border-gray-300 z-0"></div>
 
   <!-- Your script -->
   <script src="map.js"></script>
